@@ -3,10 +3,10 @@ import {Response} from 'express';
 import {RequestDto} from '../dtos/request.dto';
 import validatorDto from '../validator';
 import Calculate from '../module/calculate';
-import calculateBmiInchesPounds from '../module/calculate.bmi.inches-pounds';
-import calculateBmiFeetInchesPounds from '../module/calculate.bmi.feet-inches-pounds';
-import calculateBmiMetersKilograms from '../module/calculate.bmi.meters-kilograms';
-import calculateBmiCentimetersKilograms from '../module/calculate.bmi.centimeters-kilograms';
+import bmiInchesPounds from '../module/bmi.inches-pounds';
+import bmiFeetInchesPounds from '../module/bmi.feet-inches-pounds';
+import bmiMetersKilograms from '../module/bmi.meters-kilograms';
+import bmiCentimetersKilograms from '../module/bmi.centimeters-kilograms';
 
 @Service()
 class BmiService {
@@ -25,23 +25,23 @@ class BmiService {
   private determineCalculation(dto: any): number {
     switch (dto.metric) {
       case 'inches':
-        return new Calculate(new calculateBmiInchesPounds(
+        return new Calculate(new bmiInchesPounds(
             dto.height,
             dto.weight,
         )).calculate();
       case 'feet':
-        return new Calculate(new calculateBmiFeetInchesPounds(
+        return new Calculate(new bmiFeetInchesPounds(
             dto.height,
             dto.weight,
             dto.inches,
         )).calculate();
       case 'meters':
-        return new Calculate(new calculateBmiMetersKilograms(
+        return new Calculate(new bmiMetersKilograms(
             dto.height,
             dto.weight,
         )).calculate();
       case 'centimeters':
-        return new Calculate(new calculateBmiCentimetersKilograms(
+        return new Calculate(new bmiCentimetersKilograms(
             dto.height,
             dto.weight,
         )).calculate();

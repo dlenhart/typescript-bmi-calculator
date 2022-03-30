@@ -1,6 +1,6 @@
 import IBmiCalculator from '../interfaces/IBmiCalculator';
 
-class calculateBmiFeetInchesPounds implements IBmiCalculator {
+class bmiFeetInchesPounds implements IBmiCalculator {
   constructor(
             public height: number,
             public weight: number,
@@ -13,4 +13,4 @@ class calculateBmiFeetInchesPounds implements IBmiCalculator {
   }
 }
 
-export default calculateBmiFeetInchesPounds;
+export default bmiFeetInchesPounds;

@@ -1,14 +1,14 @@
 import IBmiCalculator from '../interfaces/IBmiCalculator';
 
-class calculateBmiInchesPounds implements IBmiCalculator {
+class bmiCentimetersKilograms implements IBmiCalculator {
   constructor(
         public height: number,
         public weight: number,
   ) {}
 
   public calculate(): number {
-    return (this.weight / (this.height ** 2)) * 703;
+    return this.weight / ((this.height / 100) ** 2);
   }
 }
 
-export default calculateBmiInchesPounds;
+export default bmiCentimetersKilograms;
