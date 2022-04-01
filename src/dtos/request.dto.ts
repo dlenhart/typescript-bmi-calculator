@@ -1,6 +1,7 @@
-import {IsNumber, IsOptional, IsString} from 'class-validator';
+import {IsIn, IsNumber, IsOptional} from 'class-validator';
 
-type Metric = 'inches' | 'feet' | 'meters' | 'centimeters';
+const Metrics = ['inches', 'feet', 'meters', 'centimeters'];
+export type Metric = typeof Metrics[number];
 
 export interface Request {
     height: number;
@@ -20,6 +21,6 @@ export class RequestDto implements Request {
     @IsOptional()
       inches?: number;
 
-    @IsString()
+    @IsIn(Metrics)
       metric!: Metric;
 }

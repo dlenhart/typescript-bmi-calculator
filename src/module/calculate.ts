@@ -1,9 +1,9 @@
-import IBmiCalculator from '../interfaces/IBmiCalculator';
+import BmiInterface from '../interfaces/BmiInterface';
 
 export default class Calculate {
   protected calculator;
 
-  constructor(calculate: IBmiCalculator) {
+  constructor(calculate: BmiInterface) {
     this.calculator = calculate;
   }
 

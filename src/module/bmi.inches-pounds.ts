@@ -1,6 +1,6 @@
-import IBmiCalculator from '../interfaces/IBmiCalculator';
+import BmiInterface from '../interfaces/BmiInterface';
 
-class bmiInchesPounds implements IBmiCalculator {
+class bmiInchesPounds implements BmiInterface {
   constructor(
         public height: number,
         public weight: number,
